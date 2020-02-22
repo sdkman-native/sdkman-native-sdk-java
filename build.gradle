@@ -16,7 +16,9 @@
 
 buildscript {
     repositories {
-        mavenCentral()
+        maven {
+            url "https://repo.maven.apache.org/maven2/"
+        }
     }
 
     dependencies {
@@ -37,7 +39,9 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
-    mavenCentral()
+    maven {
+        url "https://repo.maven.apache.org/maven2/"
+    }
 }
 
 dependencies {
