@@ -31,7 +31,7 @@ import java.util.Map;
  */
 public class GvmClient {
 
-    static final String DEFAULT_API = "http://api.gvmtool.net";
+    public static final String DEFAULT_API = "https://api.sdkman.io/2";
 
     RESTClient restClient;
 
@@ -117,4 +117,23 @@ public class GvmClient {
             throw new GvmClientException("Problems communicating with: " + path, t);
         }
     }
+
+    	public static void main(String[] args) throws Throwable {
+		
+		GvmClient gvmClient = GvmClient.instance();
+
+//		List<Candidate> candidates = gvmClient.getCandidates();
+//		candidates.forEach(c -> {
+//			System.out.println(c.getName());
+//		});
+//		List<Version> versions = gvmClient.getVersionsFor("java");
+//		versions.forEach(v -> {
+//			System.out.println(v.getName());
+//		});
+
+		String defaultVersion = gvmClient.getText("/candidates/default/java");
+		System.out.println("Default java version : " + defaultVersion);
+		
+	}
+
 }
