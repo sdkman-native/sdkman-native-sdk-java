@@ -4,13 +4,17 @@ This library is for the purpose of interacting with the GVM REST API from within
 
 Using it is simple:
 
-    def gvmClient = new GvmClient("http://dev.gvmtool.net")
+    // def gvmClient = new GvmClient("http://dev.gvmtool.net")
     
-    def candidates = gvmClient.getCandidates()
-	candidates.each { println it.name }
+    // def candidates = gvmClient.getCandidates()
+    // candidates.each { println it.name }
 
-    def versions = gvmClient.getVersionsFor("groovy")
-    versions.each { println it.name }
+    // def versions = gvmClient.getVersionsFor("groovy")
+    // versions.each { println it.name }
+    
+    GvmClient gvmClient = GvmClient.instance("https://api.sdkman.io/2");
+    String defaultVersion = gvmClient.getText("/candidates/default/java");
+    System.out.println("Default java version : " + defaultVersion);
 
 Lots more features coming soon!!!
 
